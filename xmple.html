@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+		<style>
+			svg {
+				
+			}
+			div.bar {
+				display: inline-block;
+				width: 20px;
+				height: 75px;
+				margin-right: 2px;
+				background-color: teal;
+			}
+		</style>
+		<script type = "text/javascript" src="d3/d3.v3.js"> </script>
+		<title> Play with D3 </title>
+	</head>
+	<body>
+		
+		<h1>Give it a Go</h1>
+		
+		 <p>Hopefully it works </p> 
+		 <div> 
+ 			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1" opacity="0"/>
+			</svg>
+ 			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+				<circle cx="25" cy="25" r="5" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg>
+			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+				<circle cx="25" cy="25" r="5" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg> 
+		 </div> 
+		 <div> 
+ 			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg>
+			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg> 
+ 			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg>
+			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg> 
+		 </div> 
+		 <div>
+ 			<svg  title="TestToolTip!" width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1" opacity="0"/>
+			</svg>		 
+ 			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg>
+			<svg width="50" height="50">
+				<circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="1"/>
+			</svg> 
+		 </div>
+		 
+		 <p><a href="#" title="That&apos;s what this widget is">Tooltips</a> can be attached to any element. When you hover the element with your mouse, the title attribute is displayed in a little box</p>
+		<script type="text/javascript">
+			function getMaxOfArray(numArray) {
+				return Math.max.apply(null, numArray)
+			};
+			var testData = {
+				WardId: [1,2,3,4,5,6,7,8,9,10],
+				pop: [11,100,500,22,211,555,100,1000,955,1000]
+			};
+			//var dataset = [18.4,10.4,18.4,13,5,21,10,55,21,5,30,5,20,6.4,19.5,30,10,18.4,18.4];
+			var w = 700;
+			var h = 300;
+			var barPad = 2;
+			//Create SVG element
+			var dataset = testData.pop
+			//console.log("Before transformation:")
+			//console.log(dataset)
+			var datMax = getMaxOfArray(dataset)
+			if ( datMax > h){
+			// normalizing
+				for (var i=0; i<dataset.length; i++){
+					dataset[i] = (dataset[i]/datMax)*100
+				}
+			}
+			//console.log("After:")
+			//console.log(dataset)
+			var svg = d3.select("body")
+				.append("svg")
+				.attr("title", "Hey hey")
+				.attr("width", w)
+				.attr("height", h);
+			
+			svg.selectAll("rect")
+				.data(testData.pop)
+				.enter()
+				.append("rect")
+				.attr("x", function(d, i) {
+					//return i * 21; Not scalable
+					return i * (w / dataset.length);
+				})
+				.attr("y", function(d) {
+					return h-(d*3);
+				})
+				.attr("width", w/dataset.length - barPad)
+				.attr("height", function(d){ 
+					return d*3;
+				})
+				.attr("fill", function(d) {
+					var intval = parseInt((d/100)*255)
+					//console.log(tstInt)
+					return "rgb(0,0," + (intval) + ")"
+				});
+			
+			svg.selectAll("text")
+				.data(dataset)
+				.enter()
+				.append("text")
+				.text(function(d){
+					return parseInt((d/100)*datMax);
+				})
+				.attr("x", function(d, i) {
+					//return i * 21; Not scalable
+					return i * (w / dataset.length) +5;
+				})
+				.attr("y", function(d) {
+					var val = h-(d*3) + 15 
+					//console.log("Text will be placed at: "+ val)
+					if (val >= h){
+						val = (val-15)
+						//console.log("Scratch that: "+ val)
+					}
+					return val;
+				})
+				.attr("fill", function(d){
+					if ((h-(d*3)+15) >= h){
+						return "black";
+					} else {
+						return "white";
+					}
+				});
+			
+			//d3.select("body").selectAll("div")
+			//	.data(dataset)
+			//	.enter()
+			//	.append("div")
+			//	.attr("class", "bar")
+			//	.style("height", function (d) {
+			//		var barHeight = d*5;
+			//		return barHeight + "px";
+			//	});
+		</script>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	</body>
+</html>
