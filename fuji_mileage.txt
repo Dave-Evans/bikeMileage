@@ -106,3 +106,4 @@ Date	Mileage	Maintenance/ Comment	Cost
 30.9.2015	8		
 7.10.2015	6		
 8.10.2015	9		
+14.10.2015	6		

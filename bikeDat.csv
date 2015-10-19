@@ -50,8 +50,8 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2014-08-08,41.0,,,fuji
 2014-08-10,4.1,,,fuji
 2014-08-14,8.0,,,fuji
-2014-08-15,34.0,,,trek
 2014-08-15,6.0,,,fuji
+2014-08-15,34.0,,,trek
 2014-08-16,8.0,,,fuji
 2014-08-17,20.0,,,fuji
 2014-08-19,33.0,,,trek
@@ -109,18 +109,18 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2015-05-02,5.0,New drive train: - new chain rings; - new chain; - new free wheel; - new front and rear derailleurs; - new brake levers; - new bb (now cartridge),110.0,fuji
 2015-05-03,10.0,,,fuji
 2015-05-06,30.0,,,trek
-2015-05-09,46.0,,,trek
 2015-05-09,4.0,,,fuji
+2015-05-09,46.0,,,trek
 2015-05-13,8.5,,,trek
 2015-05-15,32.5,,,trek
 2015-05-19,36.25,,,trek
-2015-05-21,4.0,,,fuji
 2015-05-21,21.0,,,trek
+2015-05-21,4.0,,,fuji
 2015-05-22,2.0,,,fuji
 2015-05-25,33.0,,,trek
 2015-05-26,2.0,,,fuji
-2015-05-28,2.0,,,fuji
 2015-05-28,32.5,,,trek
+2015-05-28,2.0,,,fuji
 2015-05-31,32.5,new tube ,5.0,trek
 2015-06-02,32.5,,,trek
 2015-06-06,61.0,,,trek
@@ -145,8 +145,8 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2015-07-22,12.0,,,fuji
 2015-07-24,10.0,,,fuji
 2015-07-26,20.0,Cap city loop: 69 min,,trek
-2015-07-29,5.0,,,fuji
 2015-07-29,20.0,Cap city loop: 67.5 min,,trek
+2015-07-29,5.0,,,fuji
 2015-07-30,11.0,,,fuji
 2015-07-31,3.5,,,trek
 2015-08-21,20.0,Cap city loop: 70 min,,trek
@@ -175,3 +175,7 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2015-10-08,9.0,,,fuji
 2015-10-09,20.0,Cap city loop: 66.5 min,,trek
 2015-10-11,8.0,,,trek
+2015-10-14,6.0,,,fuji
+2015-10-14,16.8,,,trek
+2015-10-16,20.0,Cap city loop: 70 min,,trek
+2015-10-18,31.4,,,trek
