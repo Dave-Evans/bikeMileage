@@ -69,5 +69,7 @@ Date	Mileage	Maintenance/ Comment	Cost
 9.10.2015	20	Cap city loop: 66.5 min	
 11.10.2015	8		
 14.10.2015	16.8
-16.10.2015	20	Cap city loop: 70 min
+16.10.2015	20	Cap city loop: 70 min	
 18.10.2015	31.4		
+22.10.2015	20	Cap city loop: 69	
+
