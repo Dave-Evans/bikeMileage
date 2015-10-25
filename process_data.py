@@ -15,7 +15,8 @@ def pd_to_plt(indx):
     return pltDates
 
 
-path = "C:/Users/devans/bikeMileage"
+# path = "C:/Users/devans/bikeMileage"
+path = "/home/devans/Documents/bikeMileage"
 miscFiles = os.listdir(path)
 bikes = ["fuji", "trek"]
 # dat = pd.DataFrame()
@@ -34,9 +35,27 @@ for i, bike in enumerate(bikes):
 
 dat.set_index("Date", True, False, True)
 
-print "Total mileage: " + str(dat["Mileage"].sum())
-dat.sort_index(0, None, True, True, "quicksort", "last")
+print("Total mileage: " + str(dat["Mileage"].sum()))
+
+# dat.sort_index(0, None, True, True, "quicksort", "last")
 dat.to_csv(path + "/bikeDat.csv")
+#for creating json:
+# f = open("bikeDat.json", "wt")
+# f.write("[")
+# txt = "\n"
+# for rw in range(len(dat)):
+# 	print "Row:",rw
+# 	for cl in dat:
+#		print "Col: " + str(cl)
+#		txt = txt + cl + ":[" + str(dat[cl][rw]) + "],"
+#	txt = "{" + txt[:-1] + "},"
+#	if rw == len(dat):
+#		txt = txt[:-1]
+#	f.write(txt)
+#	txt = "\n"
+#
+#f.write("]\n")
+#f.close()
 #### temp df
 rng = pd.date_range("2014-01-01", "2015-12-31")#dat.index.iloc
 ts = pd.DataFrame(range(len(rng)),index=rng)
@@ -94,7 +113,7 @@ axarr[0].legend(handles, labels)
 axarr[0].set_title("Bicycle Mileage")
 plt.savefig(path+"/BikePlot.pdf")
 # plt.show()
-
+### for writing json:
 
 # axarr[0, 0].bar(pd_to_plt(trek[from2014:to2014].index), trek[from2014:to2014]["Mileage"],width=1.5)
 # axarr[0, 0].set_title("Trek 2014")

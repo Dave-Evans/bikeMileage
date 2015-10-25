@@ -1,1 +1,27 @@
 <!--to display bikemileage data -->
+<html>
+	<head>
+	<title>Mileage Ridden</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<h>Here is an attempted graph at the miles I've ridden. Obviously its a work in progress.</h>
+		<script "text/javascript"> 
+			d3.csv('bikeDat.csv', function(error, dataset) {
+				dataset.forEach(function(d) {
+					.count = +d.count;
+				});
+				var path = svg.selectAll('path')
+					.data(pie(dataset))
+			// ...
+			// A bunch of code    
+			// ...
+				legend.append('text')
+				.attr('x', legendRectSize + legendSpacing)
+				.attr('y', legendRectSize - legendSpacing)
+				.text(function(d) { return d; });                       
+
+			});            
+		</script>
+	</body>
+</html>

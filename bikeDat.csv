@@ -3,24 +3,17 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2014-05-17,10.4,,,fuji
 2014-05-19,18.4,,,fuji
 2014-05-21,13.0,,,fuji
-2014-05-24,,Arrived in Madison ,200.0,trek
 2014-05-27,5.0,Put armadillo tires on (from black Schwinn),,fuji
 2014-05-28,21.0,,,fuji
-2014-05-29,10.0,,,trek
 2014-05-31,55.0,,,fuji
-2014-05-31,,Anna rode 55 miles,,trek
 2014-06-02,21.0,,,fuji
 2014-06-03,5.0,,,fuji
 2014-06-04,30.0,,,fuji
 2014-06-05,5.0,,,fuji
 2014-06-06,20.0,,,fuji
-2014-06-07,6.4,,,trek
 2014-06-11,19.5,,,fuji
-2014-06-13,30.0,,,trek
 2014-06-15,10.0,,,fuji
-2014-06-16,18.4,,,trek
 2014-06-18,18.4,,,fuji
-2014-06-23,27.4,,,trek
 2014-06-23,22.0,,,fuji
 2014-06-24,20.0,,,fuji
 2014-06-25,18.4,,,fuji
@@ -30,50 +23,34 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2014-06-29,1.0,Put on rack and fenders,8.0,fuji
 2014-07-01,10.0,,,fuji
 2014-07-02,5.2,,,fuji
-2014-07-02,,New tires,40.0,trek
 2014-07-03,15.0,,,fuji
 2014-07-04,2.5,,,fuji
 2014-07-05,2.5,,,fuji
 2014-07-06,34.0,,,fuji
-2014-07-08,35.0,Paoli ~2hrs,,trek
 2014-07-09,6.4,"Cleaned, regreased BB",,fuji
 2014-07-10,5.0,,,fuji
 2014-07-11,30.8,to crystal lake (and DNR),,fuji
 2014-07-12,40.0,Baxter's hollow and back (approx dist),,fuji
 2014-07-13,31.0,From crystal lake (and union),,fuji
-2014-07-16,35.0,Bike seat,5.0,trek
 2014-07-17,10.0,,,fuji
-2014-07-19,35.0,,,trek
 2014-07-20,8.0,,,fuji
-2014-08-05,21.5,,,trek
 2014-08-07,10.0,,,fuji
 2014-08-08,41.0,,,fuji
 2014-08-10,4.1,,,fuji
 2014-08-14,8.0,,,fuji
 2014-08-15,6.0,,,fuji
-2014-08-15,34.0,,,trek
 2014-08-16,8.0,,,fuji
 2014-08-17,20.0,,,fuji
-2014-08-19,33.0,,,trek
 2014-08-20,24.0,,,fuji
 2014-08-21,5.0,,,fuji
-2014-08-24,42.0,,,trek
 2014-08-26,13.0,,,fuji
-2014-08-27,42.0,,,trek
 2014-08-30,9.0,,,fuji
-2014-08-31,32.0,,,trek
 2014-09-03,24.0,,,fuji
 2014-09-05,6.0,,,fuji
-2014-09-07,32.0,,,trek
-2014-09-09,20.0,,,trek
 2014-09-12,3.0,,,fuji
-2014-09-14,32.0,,,trek
 2014-09-16,6.0,,,fuji
-2014-09-18,20.0,,,trek
-2014-09-22,20.0,,,trek
 2014-09-30,3.0,,,fuji
 2014-10-01,20.0,,,fuji
-2014-10-11,34.0,,,trek
 2014-10-12,35.0,,,fuji
 2014-10-13,23.0,,,fuji
 2014-10-17,5.8,,,fuji
@@ -96,9 +73,64 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2015-04-01,6.0,,,fuji
 2015-04-02,20.0,,,fuji
 2015-04-04,9.8,,,fuji
-2015-04-05,32.5,,,trek
 2015-04-08,4.75,,,fuji
 2015-04-11,3.0,,,fuji
+2015-05-02,5.0,New drive train: - new chain rings; - new chain; - new free wheel; - new front and rear derailleurs; - new brake levers; - new bb (now cartridge),110.0,fuji
+2015-05-03,10.0,,,fuji
+2015-05-09,4.0,,,fuji
+2015-05-21,4.0,,,fuji
+2015-05-22,2.0,,,fuji
+2015-05-26,2.0,,,fuji
+2015-05-28,2.0,,,fuji
+2015-06-07,7.0,,,fuji
+2015-06-09,2.0,,,fuji
+2015-06-12,6.0,,,fuji
+2015-06-13,60.0,,,fuji
+2015-06-17,8.0,,,fuji
+2015-06-18,8.0,,,fuji
+2015-06-30,11.0,,,fuji
+2015-07-03,2.0,,,fuji
+2015-07-15,6.0,,,fuji
+2015-07-16,5.0,,,fuji
+2015-07-22,12.0,,,fuji
+2015-07-24,10.0,,,fuji
+2015-07-29,5.0,,,fuji
+2015-07-30,11.0,,,fuji
+2015-08-22,21.0,,,fuji
+2015-08-27,13.0,,,fuji
+2015-09-09,13.0,,,fuji
+2015-09-15,2.0,,,fuji
+2015-09-16,12.0,"Ran into another bike, buckled frame",,fuji
+2015-09-17,10.5,,,fuji
+2015-09-23,6.0,,,fuji
+2015-09-30,8.0,,,fuji
+2015-10-07,6.0,,,fuji
+2015-10-08,9.0,,,fuji
+2015-10-14,6.0,,,fuji
+2014-05-24,,Arrived in Madison ,200.0,trek
+2014-05-29,10.0,,,trek
+2014-05-31,,Anna rode 55 miles,,trek
+2014-06-07,6.4,,,trek
+2014-06-13,30.0,,,trek
+2014-06-16,18.4,,,trek
+2014-06-23,27.4,,,trek
+2014-07-02,,New tires,40.0,trek
+2014-07-08,35.0,Paoli ~2hrs,,trek
+2014-07-16,35.0,Bike seat,5.0,trek
+2014-07-19,35.0,,,trek
+2014-08-05,21.5,,,trek
+2014-08-15,34.0,,,trek
+2014-08-19,33.0,,,trek
+2014-08-24,42.0,,,trek
+2014-08-27,42.0,,,trek
+2014-08-31,32.0,,,trek
+2014-09-07,32.0,,,trek
+2014-09-09,20.0,,,trek
+2014-09-14,32.0,,,trek
+2014-09-18,20.0,,,trek
+2014-09-22,20.0,,,trek
+2014-10-11,34.0,,,trek
+2015-04-05,32.5,,,trek
 2015-04-14,20.0,,,trek
 2015-04-17,31.0,,,trek
 2015-04-23,11.3,,,trek
@@ -106,77 +138,47 @@ Date,Mileage,Maintenance/ Comment,Cost,Bike
 2015-04-27,20.0,,,trek
 2015-04-29,29.0,,,trek
 2015-05-01,4.25,,,trek
-2015-05-02,5.0,New drive train: - new chain rings; - new chain; - new free wheel; - new front and rear derailleurs; - new brake levers; - new bb (now cartridge),110.0,fuji
-2015-05-03,10.0,,,fuji
 2015-05-06,30.0,,,trek
-2015-05-09,4.0,,,fuji
 2015-05-09,46.0,,,trek
 2015-05-13,8.5,,,trek
 2015-05-15,32.5,,,trek
 2015-05-19,36.25,,,trek
 2015-05-21,21.0,,,trek
-2015-05-21,4.0,,,fuji
-2015-05-22,2.0,,,fuji
 2015-05-25,33.0,,,trek
-2015-05-26,2.0,,,fuji
 2015-05-28,32.5,,,trek
-2015-05-28,2.0,,,fuji
 2015-05-31,32.5,new tube ,5.0,trek
 2015-06-02,32.5,,,trek
 2015-06-06,61.0,,,trek
-2015-06-07,7.0,,,fuji
-2015-06-09,2.0,,,fuji
 2015-06-10,20.0,,,trek
-2015-06-12,6.0,,,fuji
-2015-06-13,60.0,,,fuji
 2015-06-17,20.0,,,trek
-2015-06-17,8.0,,,fuji
-2015-06-18,8.0,,,fuji
 2015-06-21,41.0,new handle bars & stem (cost for stem),16.0,trek
 2015-06-23,20.0,Cap city loop: 66 min,,trek
-2015-06-30,11.0,,,fuji
 2015-07-01,20.0,Cap city loop: 72 min,,trek
-2015-07-03,2.0,,,fuji
 2015-07-04,28.0,,,trek
 2015-07-07,42.0,,,trek
 2015-07-11,35.2,,,trek
-2015-07-15,6.0,,,fuji
-2015-07-16,5.0,,,fuji
-2015-07-22,12.0,,,fuji
-2015-07-24,10.0,,,fuji
 2015-07-26,20.0,Cap city loop: 69 min,,trek
 2015-07-29,20.0,Cap city loop: 67.5 min,,trek
-2015-07-29,5.0,,,fuji
-2015-07-30,11.0,,,fuji
 2015-07-31,3.5,,,trek
 2015-08-21,20.0,Cap city loop: 70 min,,trek
-2015-08-22,21.0,,,fuji
 2015-08-23,36.0,,,trek
-2015-08-27,13.0,,,fuji
 2015-08-27,20.0,Cap city loop: 70 min,,trek
 2015-08-30,20.0,Cap city loop: 67 min,,trek
 2015-09-01,20.0,Cap city loop: 68 min,,trek
 2015-09-05,28.75,,,trek
 2015-09-07,31.3,,,trek
-2015-09-09,13.0,,,fuji
 2015-09-11,20.0,Cap city loop: 75(?) min,,trek
 2015-09-13,28.3,,,trek
-2015-09-15,2.0,,,fuji
-2015-09-16,12.0,"Ran into another bike, buckled frame",,fuji
-2015-09-17,10.5,,,fuji
 2015-09-19,49.3,,,trek
-2015-09-23,6.0,,,fuji
 2015-09-28,20.0,Cap city loop: 67.5 min,,trek
-2015-09-30,8.0,,,fuji
 2015-09-30,20.0,Cap city loop: 80? min,,trek
 2015-10-04,20.0,Cap city loop: 68 min,,trek
 2015-10-07,30.0,,,trek
-2015-10-07,6.0,,,fuji
-2015-10-08,9.0,,,fuji
 2015-10-09,20.0,Cap city loop: 66.5 min,,trek
 2015-10-11,8.0,,,trek
-2015-10-14,6.0,,,fuji
 2015-10-14,16.8,,,trek
 2015-10-16,20.0,Cap city loop: 70 min,,trek
 2015-10-18,31.4,,,trek
-2015-10-22,20.0,Cap city loop: 69,,trek
+2015-10-22,20.0,Cap city loop: 69 min,,trek
+2015-10-25,20.0,Cap city loop: 70 min,,trek
+2014-01-01,,,,trek
