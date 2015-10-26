@@ -14,9 +14,11 @@ def pd_to_plt(indx):
 #     pltDates = [datetime.date(int(str(date).split("-")[0]),int(str(date).split("-")[1]),int(str(date).split("-")[2])) for date in indx]
     return pltDates
 
+if os.name == "nt":
+	path = "C:/Users/devans/bikeMileage"
+else:
+	path = "/home/devans/Documents/bikeMileage"
 
-# path = "C:/Users/devans/bikeMileage"
-path = "/home/devans/Documents/bikeMileage"
 miscFiles = os.listdir(path)
 bikes = ["fuji", "trek"]
 # dat = pd.DataFrame()
@@ -37,7 +39,8 @@ dat.set_index("Date", True, False, True)
 
 print("Total mileage: " + str(dat["Mileage"].sum()))
 
-# dat.sort_index(0, None, True, True, "quicksort", "last")
+if os.name == "nt":
+	dat.sort_index(0, None, True, True, "quicksort", "last")
 dat.to_csv(path + "/bikeDat.csv")
 # won't need this, but should create a date col in unix time
 #for creating json:
