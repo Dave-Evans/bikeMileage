@@ -39,6 +39,7 @@ print("Total mileage: " + str(dat["Mileage"].sum()))
 
 # dat.sort_index(0, None, True, True, "quicksort", "last")
 dat.to_csv(path + "/bikeDat.csv")
+# won't need this, but should create a date col in unix time
 #for creating json:
 # f = open("bikeDat.json", "wt")
 # f.write("[")
