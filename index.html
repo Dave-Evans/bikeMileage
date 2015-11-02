@@ -2,69 +2,143 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <style>
-        div.chart{
-            font-family:sans-serif;
-            font-size:0.7em;
-        }
-        div.bar {
-            /*background-color:DarkRed;*/
-            color:white;
-            height:3em;
-            line-height:3em;
-            padding-right:1em;
-            margin-bottom:2px;
-            text-align:right;
-            margin-left:22em;
-        }
-        div.label {
-            height:3em;
-            line-height:3em;
-            padding-right:1em;
-            margin-bottom:2px;
-            float:left;
-            width:20em;
-            text-align:right;
-        }
-        
-    </style>
-    <script>
-    function draw(data) {
-        "use strict";
-        
-        console.log(data)
-        
-        d3.select("body")
-            .append("div")
-            .attr("class", "chart")
-            .selectAll("div.bar")
-            .data(data)
-            .enter()
-            .append("div")
-            .attr("class","line")
-    
-        d3.selectAll("div.line")
-            .append("div")
-            .attr("class","label")
-            .text(function(d){return d.Date})
-        
-        d3.selectAll("div.line")
-            .append("div")
-            .attr("class","bar")
-            .style("width", function(d){return d.Mileage*10 + "px"})
-            .text(function(d){return Math.round(d.Mileage)})
-			.style("background-color", function(d) {
-				if (d.Bike === "fuji"){
-					return "DarkRed"
-				} else {
-					return "DarkBlue"
-				}
-			});
-    
-            
-            
+	<script type="text/javascript" src="d3.js"></script>
+    <!-- <script type="text/javscript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script> -->
+        <style>
+    .axis {
+        font-family: arial;
+        font-size:0.6em;
     }
+    path {
+        fill:none;
+        stroke:black;
+        stroke-width:2px;
+    }
+    .tick {
+        fill:none;
+        stroke:black;
+    }
+    circle{
+        stroke:black;
+        stroke-width:0.5px;
+    }
+    circle.times_square{
+        fill:DeepPink;
+    }
+    circle.grand_central{
+        fill:MediumSeaGreen;
+    }
+    path.times_square{
+        stroke:DeepPink;
+    }
+    path.grand_central{
+        stroke:MediumSeaGreen;
+    }
+    
+    
+    
+    </style>
+   <script>
+    function draw(data) {
+
+        var margin = 50,
+            width = 700 - margin,
+            height = 300 - margin;
+        
+        var count_extent = d3.extent(
+            data,
+            function(d){return d.count}
+        );
+
+        var time_extent = d3.extent(
+            data,
+            function(d){return d.time}
+        )
+        
+        var count_scale = d3.scale.linear()
+            .domain(count_extent)
+            .range([height, margin]);
+        
+        var time_scale = d3.time.scale()
+            .domain(time_extent)
+            .range([margin, width])
+        
+        var time_axis = d3.svg.axis()
+            .scale(time_scale)
+        
+        var count_axis = d3.svg.axis()
+            .scale(count_scale)
+            .orient("left")
+        
+        var line = d3.svg.line()
+            .x(function(d){return time_scale(d.DateSec)})
+            .y(function(d){return count_scale(d.Mileage)})
+            .interpolate("linear")
+                    
+        d3.select("body") 
+          .append("svg")
+            .attr("class","chart") 
+            .attr("width", width+margin)
+            .attr("height", height+margin)
+        
+        d3.select('svg')
+          .append('path')
+            .attr('d', line(data))
+            .attr('class', 'bike')
+        
+        d3.select('svg')
+          .append('path')
+            .attr('d', line(data))
+            .attr('class', 'grand_central')
+        
+        
+        d3.select("svg")
+          .selectAll("circle.times_square")
+          .data(data)
+          .enter()
+          .append("circle")
+            .attr("class", "times_square")
+
+        d3.select("svg")
+          .selectAll("circle.grand_central")
+          .data(data)
+          .enter()
+          .append("circle")
+            .attr("class", "grand_central")
+    
+        d3.selectAll("circle")
+            .attr("cy", function(d){return count_scale(d.Mileage);})
+            .attr("cx", function(d){return time_scale(d.DaySec);})
+            .attr("r", 3)
+            
+        d3.select("svg")
+          .append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(time_axis);
+         
+        d3.select("svg")
+          .append("g")
+          .attr("class", "y axis")
+          .attr("transform", "translate(" + margin + ",0)")
+          .call(count_axis);
+    
+      d3.select('.y.axis')
+          .append('text')
+          .text('mean number of turnstile revolutions')
+          .attr('transform', "rotate (90, " + -margin + ", 0)")
+          .attr('x', 20)
+          .attr('y', 0)
+                    
+      d3.select('.x.axis')
+        .append('text')
+          .text('time')
+          .attr('x', function(){return (width / 1.6) - margin})
+          .attr('y', margin/1.5)
+
+    };
+    
+    
     </script>
 </head>
 <body>

@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import time
 import datetime
+import numpy as np
+import calendar
 
 ### function for taking a pandas datatime index (%Y-%m%-%d) and making it a usable
 ###    form for matplotlib
@@ -28,6 +30,7 @@ for i, bike in enumerate(bikes):
     tmp = pd.read_table(path + "/" + targ, sep="\t")
     tmp["Bike"] = bike
     tmp["Date"].fillna("01.01.2014", None, 0, True)
+    tmp["DateSec"] = [calendar.timegm(time.strptime(dte, "%d.%m.%Y")) for dte in tmp["Date"]]
     tmp["Date"] = [time.strftime("%Y-%m-%d", time.strptime(dte, "%d.%m.%Y")) for dte in tmp["Date"]]
 #     print tmp.head()
     if (i == 0):
@@ -35,7 +38,14 @@ for i, bike in enumerate(bikes):
     else: 
         dat = dat.append(tmp)
 
+# use this to put into seconds since epoch:
+# http://stackoverflow.com/questions/17328655/pandas-set-datetimeindex
+# datetime.datetime(int(str(dat.index).split("-")[0]), int(str(dat.index).split("-")[1]), int(str(dat.index).split("-")[2]))
+ 
 dat.set_index("Date", True, False, True)
+
+print type(dat.index)
+# datetime.datetime(int(str(dat.index).split("-")[0]), int(str(dat.index).split("-")[1]), int(str(dat.index).split("-")[2]))
 
 print("Total mileage: " + str(dat["Mileage"].sum()))
 
@@ -43,23 +53,7 @@ if os.name == "nt":
 	dat.sort_index(0, None, True, True, "quicksort", "last")
 dat.to_csv(path + "/bikeDat.csv")
 # won't need this, but should create a date col in unix time
-#for creating json:
-# f = open("bikeDat.json", "wt")
-# f.write("[")
-# txt = "\n"
-# for rw in range(len(dat)):
-# 	print "Row:",rw
-# 	for cl in dat:
-#		print "Col: " + str(cl)
-#		txt = txt + cl + ":[" + str(dat[cl][rw]) + "],"
-#	txt = "{" + txt[:-1] + "},"
-#	if rw == len(dat):
-#		txt = txt[:-1]
-#	f.write(txt)
-#	txt = "\n"
-#
-#f.write("]\n")
-#f.close()
+
 #### temp df
 rng = pd.date_range("2014-01-01", "2015-12-31")#dat.index.iloc
 ts = pd.DataFrame(range(len(rng)),index=rng)
