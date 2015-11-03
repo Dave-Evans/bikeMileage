@@ -76,7 +76,7 @@ f.set_size_inches(11,7)
 from2014 ="2014-03-01"
 to2014 = "2014-12-01"
 from2015 = "2015-03-01"
-to2015 = "2015-11-01"
+to2015 = "2015-12-01"
 
 trek2014 = trek[from2014:to2014]["Mileage"].sum()
 trek2015 = trek[from2015:to2015]["Mileage"].sum()
