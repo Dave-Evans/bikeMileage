@@ -17,7 +17,7 @@ def pd_to_plt(indx):
     return pltDates
 
 if os.name == "nt":
-	path = "C:/Users/devans/bikeMileage"
+	path = "C:/Users/devans/workspace/bikeMileage/bikeMileage"
 else:
 	path = "/home/devans/Documents/bikeMileage"
 
@@ -38,13 +38,15 @@ for i, bike in enumerate(bikes):
     else: 
         dat = dat.append(tmp)
 
+dat["CumulativeMileage"] = dat.Mileage.cumsum()
+
+
 # use this to put into seconds since epoch:
 # http://stackoverflow.com/questions/17328655/pandas-set-datetimeindex
 # datetime.datetime(int(str(dat.index).split("-")[0]), int(str(dat.index).split("-")[1]), int(str(dat.index).split("-")[2]))
  
 dat.set_index("Date", True, False, True)
 
-print type(dat.index)
 # datetime.datetime(int(str(dat.index).split("-")[0]), int(str(dat.index).split("-")[1]), int(str(dat.index).split("-")[2]))
 
 print("Total mileage: " + str(dat["Mileage"].sum()))
@@ -85,12 +87,13 @@ fuji2015 = fuji[from2015:to2015]["Mileage"].sum()
 print "Trek mileage:\n" + "\t2014: " + str(trek2014) + "\t2015: " + str(trek2015) 
 print  "Fuji mileage:\n" + "\t2014: " + str(fuji2014) + "\t2015: " + str(fuji2015)
 
-
+## Top graph
 axarr[1].bar(pd_to_plt(trek[from2014:to2014].index), trek[from2014:to2014]["Mileage"],width=1.5, label="Trek")
 axarr[1].bar(pd_to_plt(fuji[from2014:to2014].index), fuji[from2014:to2014]["Mileage"],width=1.5, color='r', label="Fuji")
 axarr[1].set_ylabel("Miles", alpha=0.5)
 plt.text(0.1, 0.9, "Trek: " + str(trek2014), ha='center', va='center', color="blue", transform=axarr[1].transAxes)
 plt.text(0.1, 0.8,"Fuji: " + str(fuji2014), ha='center', va='center', color='red', transform=axarr[1].transAxes)
+# axarr[1].plot(pd_to_plt(dat[from2014:to2014].index),dat[from2014:to2014]["CumulativeMileage"])
 # barTrek = mpatches.Patch(color='blue', label="Trek")
 # barFuji = mpatches.Patch(color='red', label="Fuji")
 # plt.legend(handles=[barTrek, barFuji])
