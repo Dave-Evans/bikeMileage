@@ -38,7 +38,7 @@ for i, bike in enumerate(bikes):
     else: 
         dat = dat.append(tmp)
 
-dat["CumulativeMileage"] = dat.Mileage.cumsum()
+
 
 
 # use this to put into seconds since epoch:
@@ -47,13 +47,16 @@ dat["CumulativeMileage"] = dat.Mileage.cumsum()
  
 dat.set_index("Date", True, False, True)
 
+
 # datetime.datetime(int(str(dat.index).split("-")[0]), int(str(dat.index).split("-")[1]), int(str(dat.index).split("-")[2]))
 
 print("Total mileage: " + str(dat["Mileage"].sum()))
+from2014 ="2014-03-01"
+to2014 = "2014-12-01"
+from2015 = "2015-03-01"
+to2015 = "2015-12-01"
 
-if os.name == "nt":
-	dat.sort_index(0, None, True, True, "quicksort", "last")
-dat.to_csv(path + "/bikeDat.csv")
+
 # won't need this, but should create a date col in unix time
 
 #### temp df
@@ -61,6 +64,12 @@ rng = pd.date_range("2014-01-01", "2015-12-31")#dat.index.iloc
 ts = pd.DataFrame(range(len(rng)),index=rng)
 
 dat = pd.merge(ts, dat, how="outer",on=None, left_index=True, right_index=True)
+dat["Mileage"].fillna(0, None, 0, True)
+if os.name == "nt":
+    dat.sort_index(0, None, True, True, "quicksort", "last")
+    dat.loc[from2014:to2014, "CumulativeMileage"] = dat.loc[from2014:to2014,"Mileage"].cumsum()
+    dat.loc[from2015:to2015,"CumulativeMileage"] = dat.loc[from2015:to2015, "Mileage"].cumsum()
+    dat.to_csv(path + "/bikeDat.csv")
 
 #### Plotting ####
 fuji = dat[dat["Bike"] == 'fuji']
@@ -74,11 +83,6 @@ trek["Mileage"].fillna(0, None, 0, True)
 
 f, axarr = plt.subplots(2, 1, sharey=True)
 f.set_size_inches(11,7)
-# raise
-from2014 ="2014-03-01"
-to2014 = "2014-12-01"
-from2015 = "2015-03-01"
-to2015 = "2015-12-01"
 
 trek2014 = trek[from2014:to2014]["Mileage"].sum()
 trek2015 = trek[from2015:to2015]["Mileage"].sum()
@@ -90,27 +94,39 @@ print  "Fuji mileage:\n" + "\t2014: " + str(fuji2014) + "\t2015: " + str(fuji201
 ## Top graph
 axarr[1].bar(pd_to_plt(trek[from2014:to2014].index), trek[from2014:to2014]["Mileage"],width=1.5, label="Trek")
 axarr[1].bar(pd_to_plt(fuji[from2014:to2014].index), fuji[from2014:to2014]["Mileage"],width=1.5, color='r', label="Fuji")
-axarr[1].set_ylabel("Miles", alpha=0.5)
-plt.text(0.1, 0.9, "Trek: " + str(trek2014), ha='center', va='center', color="blue", transform=axarr[1].transAxes)
-plt.text(0.1, 0.8,"Fuji: " + str(fuji2014), ha='center', va='center', color='red', transform=axarr[1].transAxes)
+axarr12 = axarr[1].twinx()
+
+axarr12.plot(pd_to_plt(dat[from2014:to2014].index), dat["CumulativeMileage"][from2014:to2014], color="#551a8b", label="Total", zorder=-30)  
+axarr[1].set_ylabel("Miles", alpha=0.5, fontsize=10)
+plt.text(0.05, 0.9, "Trek: " + str(trek2014), ha='left', va='center', color="blue", transform=axarr[1].transAxes, size=10,backgroundcolor="w")
+plt.text(0.05, 0.8,"Fuji: " + str(fuji2014), ha='left', va='center', color='red', transform=axarr[1].transAxes, size=10,backgroundcolor="w")
+plt.text(0.05, 0.7,"Total: " + str(fuji2014 + trek2014), ha='left', va='center', color='#551a8b', transform=axarr[1].transAxes, size=10,backgroundcolor="w")
 # axarr[1].plot(pd_to_plt(dat[from2014:to2014].index),dat[from2014:to2014]["CumulativeMileage"])
 # barTrek = mpatches.Patch(color='blue', label="Trek")
 # barFuji = mpatches.Patch(color='red', label="Fuji")
 # plt.legend(handles=[barTrek, barFuji])
-axarr[0].bar(pd_to_plt(trek[from2015:to2015].index), trek[from2015:to2015]["Mileage"],width=1.5)
-axarr[0].bar(pd_to_plt(fuji[from2015:to2015].index), fuji[from2015:to2015]["Mileage"],width=1.5, color='r')
-axarr[0].set_ylabel("Miles", alpha=0.5)
-plt.text(0.1, 0.9, "Trek: " + str(trek2015), ha='center', va='center', color="blue", transform=axarr[0].transAxes)
-plt.text(0.1, 0.8,"Fuji: " + str(fuji2015), ha='center', va='center', color='red', transform=axarr[0].transAxes)
+axarr[0].bar(pd_to_plt(trek[from2015:to2015].index), trek[from2015:to2015]["Mileage"],width=1.5, zorder=3)
+axarr[0].bar(pd_to_plt(fuji[from2015:to2015].index), fuji[from2015:to2015]["Mileage"],width=1.5, color='r', zorder=3)
+axarr02 = axarr[0].twinx()
 
-plt.setp(axarr[0].get_xticklabels(), rotation=20)
+axarr02.plot(pd_to_plt(dat[from2015:to2015].index), dat["CumulativeMileage"][from2015:to2015], "#551a8b", zorder=-30)  
+axarr[0].set_ylabel("Miles", alpha=0.5, fontsize=10)
+plt.text(0.05, 0.9, "Trek: " + str(trek2015), ha='left', va='center', color="blue", transform=axarr[0].transAxes, fontsize=10,backgroundcolor="w")
+plt.text(0.05, 0.8,"Fuji: " + str(fuji2015), ha='left', va='center', color='red', transform=axarr[0].transAxes, fontsize=10,backgroundcolor="w")
+plt.text(0.05, 0.7,"Total: " + str(fuji2015 + trek2015), ha='left', va='center', color='#551a8b', transform=axarr[0].transAxes, fontsize=10,backgroundcolor="w")
+
+plt.setp(axarr[0].get_xticklabels(), rotation=20, fontsize=8)
+plt.setp(axarr[0].get_yticklabels(), fontsize=8)
+plt.setp(axarr02.get_yticklabels(), fontsize=8)
 axarr[0].grid(True)
 # axarr[0].set_title("2014")
-plt.setp(axarr[1].get_xticklabels(), rotation=20)
+plt.setp(axarr[1].get_xticklabels(), rotation=20, fontsize=8)
+plt.setp(axarr12.get_yticklabels(), fontsize=8)
 axarr[1].grid(True)
 
 handles, labels = axarr[1].get_legend_handles_labels()
-axarr[0].legend(handles, labels)
+lgnd = axarr[0].legend(handles, labels, fontsize=12)
+# lgnd.get_frame().set_facecolor('w')
 axarr[0].set_title("Bicycle Mileage")
 plt.savefig(path+"/BikePlot.pdf")
 # plt.show()
