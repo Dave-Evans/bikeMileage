@@ -81,3 +81,5 @@ Date	Mileage	Maintenance/ Comment	Cost
 23.4.2016	21		
 25.4.2016	20		
 2.5.2016	32.5		
+4.5.2016	20		
+6.5.2016	20		
