@@ -83,4 +83,8 @@ Date	Mileage	Maintenance/ Comment	Cost
 2.5.2016	32.5		
 4.5.2016	20		
 6.5.2016	24		
-11.5.2016	31		
+11.5.2016	31	Broken spoke and popped  tube	6.75
+21.5.2016	34		
+23.5.2016	21.5		
+27.5.2016	19		
+29.5.2016	32		

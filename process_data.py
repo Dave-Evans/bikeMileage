@@ -19,7 +19,7 @@ def pd_to_plt(indx):
     return pltDates
 
 if os.name == "nt":
-	path = "C:/Users/devans/workspace/bikeMileage/bikeMileage"
+	path = "C:/workspace/projects/bikeMileage/bikeMileage"
 else:
 	path = "/home/devans/Documents/bikeMileage"
 
