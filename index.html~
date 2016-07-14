@@ -75,7 +75,7 @@ d3.csv("bikeDat.csv", function(error, data) {
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
   //y.domain(d3.extent(data, function(d) { return d.Mileage; }));
-  y.domain(d3.extent([0,70]));
+  y.domain(d3.extent([9,1700]));
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
