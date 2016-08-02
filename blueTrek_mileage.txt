@@ -9,4 +9,8 @@ Date	Mileage	Maintenance/ Comment	Cost
 16.5.2016	20
 16.7.2016	0	new handle bars and stem	25
 20.7.2016	18		
+27.7.2016	9	Flat tire	5
+31.7.2016	5
+1.8.2016	18		
+2.8.2016	18		
 
