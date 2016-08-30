@@ -95,4 +95,7 @@ Date	Mileage	Maintenance/ Comment	Cost
 7.7.2016	17	Flat tires
 30.7.2016	11	New chain, new tires and tubes	80	
 31.7.2016	31		
-
+4.8.2016	18		
+18.8.2016	9		
+21.8.2016	18		 
+22.8.2016	6		Flat 

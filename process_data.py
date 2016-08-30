@@ -70,7 +70,7 @@ with PdfPages("./bikeMileage/plots.pdf") as pdf:
         ax = plt.figure(figsize=(10,7)).add_subplot(111)
         axarr12 = ax.twinx()
         lab_pos = 0.9
-        print yr + " Mileage"  
+        print yr + " Mileage: " + str(yearly["Mileage"].sum())  
         for j, bike in enumerate(bikes):
             tmp = dat[dat["Bike"] == bike]
             tmp = tmp[frm:to]
@@ -79,7 +79,7 @@ with PdfPages("./bikeMileage/plots.pdf") as pdf:
             if total_mileage == 0: continue 
             tmp = pd.merge(ts, tmp, how="outer",on=None, left_index=True, right_index=True)
             print "\t" + bike + ": " + str(total_mileage)
-            ax.bar(pd_to_plt(tmp.index), tmp["Mileage"], width=1.5, label=bike, color=colrs[j], edgecolor=colrs[j])
+            ax.bar(pd_to_plt(tmp.index), tmp["Mileage"], width=1.5, label=bike, color=colrs[j])#, edgecolor=colrs[j])
             plt.text(0.05,
                      lab_pos,
                      bike + ": " + str(total_mileage),
