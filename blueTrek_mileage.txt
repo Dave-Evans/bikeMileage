@@ -6,11 +6,11 @@ Date	Mileage	Maintenance/ Comment	Cost
 3.4.2016	20		
 10.4.2016	35		
 1.5.2016	6		
-16.5.2016	20
+16.5.2016	20		
 16.7.2016	0	new handle bars and stem	25
 20.7.2016	18		
 27.7.2016	9	Flat tire	5
-31.7.2016	5
+31.7.2016	5		
 1.8.2016	18		
 2.8.2016	18		
 3.8.2016	18	Flat tire, changed to gator skin in garage	5
@@ -22,7 +22,7 @@ Date	Mileage	Maintenance/ Comment	Cost
 15.8.2016	18		
 16.8.2016	18		
 17.8.2016	18	Flat	5
-25.8.2016	18	New tire	35	
+25.8.2016	18	New tire, panaracer	35
 26.8.2016	18		
 29.8.2016	18		
 30.8.2016	18		
@@ -37,4 +37,5 @@ Date	Mileage	Maintenance/ Comment	Cost
 20.9.2016	18		
 21.9.2016	18		
 22.9.2016	18		
-
+23.9.2016	18		
+27.9.2016	18	Grip tape	7
