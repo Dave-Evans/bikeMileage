@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+/*.bar {
+  fill: steelblue;
+}*/
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+<body>
+<!--<script src="//d3js.org/d3.v3.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 1000 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var parseDate = d3.time.format("%Y-%m-%d").parse;
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.Mileage); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("bikeDat.csv", function(error, data) {
+  if (error) throw error;
+
+  data.forEach(function(d) {
+    var tst = parseDate(d.date);
+    if (tst < parseDate("2015-01-01")){
+        d.date = parseDate(d.date);
+        d.Mileage = +d.Mileage;
+    }
+    
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  //y.domain(d3.extent(data, function(d) { return d.Mileage; }));
+  y.domain(d3.extent([0,70]));
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Miles");
+
+   svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", 4) //x.range())
+      .attr("fill", function(d) {
+	  if (d.Bike == "trek"){
+	     return "steelblue";
+	   } else {
+	     return "#f03b20";
+           };       
+	})
+      .attr("y", function(d) { return y(d.Mileage); })
+      .on("mouseover", function(d) {
+	    var txt = d3.select("#text" + d.Mileage).append("text")	
+	})
+      .attr("height", function(d) { return height - y(d.Mileage); });
+	
+	
+
+});
+
+ 
+        //d3.select('#' + d.line_id).append('text')
+        //    .text(d.line_id.split('_')[1])
+        //    .attr('text-anchor','middle')
+        //    .style("dominant-baseline","central")
+        //    .attr('x', time_scale(d.time))
+        //    .attr('y', percent_scale(d.late_percent))
+        //    .attr('class','linelabel')
+         //   .style('opacity',0)
+         //   .style('fill','white')
+        //    .transition()
+         //       .style('opacity',1)        
+
+function type(d) {
+  d.Mileage = +d.Mileage;
+  return d;
+}
+
+
+</script>
+

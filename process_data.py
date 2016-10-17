@@ -23,14 +23,14 @@ if os.name == "nt":
 else:
 	path = "/home/devans/Documents/bikeMileage"
 
-miscFiles = os.listdir(path)
+datFiles = os.listdir(path + "/data")
 bikes = ["schwinn","fuji", "redTrek", "blueTrek", "takara"]
 colrs = ["slategray","darkred", 'red', "deepskyblue", "saddlebrown"]
 # dat = pd.DataFrame()
 for i, bike in enumerate(bikes):
 #     print "Working on " + str(i) + " and the " + bike
-    targ = [fl for fl in miscFiles if bike in fl][0]
-    tmp = pd.read_table(path + "/" + targ, sep="\t")
+    targ = [fl for fl in datFiles if bike in fl][0]
+    tmp = pd.read_table(path + "/data/" + targ, sep="\t")
     tmp["Bike"] = bike
     tmp["Date"].fillna("01.01.2014", None, 0, True)
     tmp["DateSec"] = [calendar.timegm(time.strptime(dte, "%d.%m.%Y")) for dte in tmp["Date"]]
@@ -113,7 +113,8 @@ with PdfPages("./bikeMileage/plots.pdf") as pdf:
 # plt.show()
 # dat.loc[from2014:to2014, "CumulativeMileage"] = dat.loc[from2014:to2014,"Mileage"].cumsum()
 # dat.loc[from2015:to2015,"CumulativeMileage"] = dat.loc[from2015:to2015, "Mileage"].cumsum()
-dat.to_csv(path + "/bikeDat.csv")
+## All together now, for consumption in d3 graph?
+# dat.to_csv(path + "/bikeDat.csv")
 
 
 # raise BaseException
