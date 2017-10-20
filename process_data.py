@@ -21,7 +21,7 @@ def pd_to_plt(indx):
 if os.name == "nt":
 	path = "C:/workspace/projects/bikeMileage/bikeMileage"
 else:
-	path = "/home/devans/Documents/bikeMileage"
+	path = "/home/daveevans/bikeMileage"
 
 datFiles = os.listdir(path + "/data")
 bikes = ["schwinn","fuji", "redTrek", "blueTrek", "takara"]
